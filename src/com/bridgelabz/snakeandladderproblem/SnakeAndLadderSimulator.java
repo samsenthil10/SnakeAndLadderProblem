@@ -4,6 +4,7 @@ public class SnakeAndLadderSimulator {
 
 	public static void main(String[] args) {
 
-		System.out.println("----------Welcome to Snake And Ladder Simulator----------");
+		int playerPosition = 0;
+		System.out.println("Single Player Starting Position : "+playerPosition);
 	}
 }
