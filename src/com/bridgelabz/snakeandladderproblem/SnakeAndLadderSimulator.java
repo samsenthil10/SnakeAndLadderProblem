@@ -5,6 +5,7 @@ public class SnakeAndLadderSimulator {
 	public static void main(String[] args) {
 
 		int playerPosition = 0;
+		int noOfTurns = 0;
 		final int NO_PLAY = 0;
 		final int LADDER = 1;
 		final int SNAKE = 2;
@@ -24,7 +25,9 @@ public class SnakeAndLadderSimulator {
 				playerPosition= (playerPosition < 0) ? 0 : playerPosition; 
 				break;
 			}
+			noOfTurns++;
+			System.out.println("Single Player is at Position: "+ playerPosition);
 		}
-		System.out.println("Single Player Current Position: "+playerPosition);
+		System.out.println("Number of turns taken by Single Player : "+noOfTurns);
 	}
 }
