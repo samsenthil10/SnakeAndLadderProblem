@@ -1,33 +1,64 @@
+
 package com.bridgelabz.snakeandladderproblem;
 
 public class SnakeAndLadderSimulator {
 
 	public static void main(String[] args) {
 
-		int playerPosition = 0;
-		int noOfTurns = 0;
+		int player1Positon = 0;
+		int player2Positon = 0;
+		int noOfTurnsByPlayer1 =0;
+		int noOfTurnsByPlayer2 =0;
+		int currentPlayer = 0;
 		final int NO_PLAY = 0;
 		final int LADDER = 1;
 		final int SNAKE = 2;
-		while(playerPosition<100) {
+
+		while(player1Positon<100 && player2Positon<100) {
 			int rollDie = (int)(Math.random() * 6)+1;
 			int movePlayer = (int)(Math.random()*3);
-			switch(movePlayer)
-			{
-			case NO_PLAY: 
-				break;
-			case LADDER : 
-				playerPosition+=rollDie;
-				playerPosition = (playerPosition > 100) ? playerPosition-rollDie : playerPosition;
-				break;
-			case SNAKE : 
-				playerPosition-=rollDie;
-				playerPosition= (playerPosition < 0) ? 0 : playerPosition; 
-				break;
+			if(currentPlayer == 0) {
+				switch(movePlayer)
+				{
+				case NO_PLAY: 
+					break;
+				case LADDER : 
+					player1Positon+=rollDie;
+					player1Positon = (player1Positon > 100) ? player1Positon-rollDie : player1Positon;
+					break;
+				case SNAKE : 
+					player1Positon-=rollDie;
+					player1Positon= (player1Positon < 0) ? 0 : player1Positon; 
+					break;
+				}
+				noOfTurnsByPlayer1++;
 			}
-			noOfTurns++;
-			System.out.println("Single Player is at Position: "+ playerPosition);
+			else if(currentPlayer == 1) {
+				switch(movePlayer)
+				{
+				case NO_PLAY: 
+					break;
+				case LADDER : 
+					player2Positon+=rollDie;
+					player2Positon = (player2Positon > 100) ? player2Positon-rollDie : player2Positon;
+					break;
+				case SNAKE : 
+					player2Positon-=rollDie;
+					player2Positon= (player2Positon < 0) ? 0 : player2Positon; 
+					break;
+				}
+				noOfTurnsByPlayer2++;
+			}
+
+			if(movePlayer == NO_PLAY || movePlayer == SNAKE) {
+				currentPlayer = (currentPlayer == 1) ? 0 : 1;
+			}
 		}
-		System.out.println("Number of turns taken by Single Player : "+noOfTurns);
+		if(player1Positon == 100) {
+			System.out.println("Player 1 won by "+ noOfTurnsByPlayer1 +" number of turns");
+		}
+		if(player2Positon == 100) {
+			System.out.println("Player 2 won by "+ noOfTurnsByPlayer2 +" number of turns");
+		}
 	}
 }
