@@ -17,10 +17,11 @@ public class SnakeAndLadderSimulator {
 				break;
 			case LADDER : 
 				playerPosition+=rollDie;
+				playerPosition = (playerPosition > 100) ? playerPosition-rollDie : playerPosition;
 				break;
 			case SNAKE : 
 				playerPosition-=rollDie;
-				playerPosition= (playerPosition < 0) ? 0 : playerPosition ; 
+				playerPosition= (playerPosition < 0) ? 0 : playerPosition; 
 				break;
 			}
 		}
