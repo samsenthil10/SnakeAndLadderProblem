@@ -1,9 +1,11 @@
-
 package com.bridgelabz.snakeandladderproblem;
 
 public class SnakeAndLadderSimulator {
 
 	public static void main(String[] args) {
+
+		System.out.println("----------Welcome to Snake And Ladder Simulator----------");
+		System.out.println();
 
 		int player1Positon = 0;
 		int player2Positon = 0;
@@ -60,5 +62,7 @@ public class SnakeAndLadderSimulator {
 		if(player2Positon == 100) {
 			System.out.println("Player 2 won by "+ noOfTurnsByPlayer2 +" number of turns");
 		}
+		System.out.println();
+		System.out.println("---------------------------------------------------------");
 	}
 }
