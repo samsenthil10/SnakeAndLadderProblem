@@ -4,7 +4,7 @@ public class SnakeAndLadderSimulator {
 
 	public static void main(String[] args) {
 
-		int playerPosition = 0;
-		System.out.println("Single Player Starting Position : "+playerPosition);
+		int rollDie = (int)((Math.random()*6) +1);
+		System.out.println("Single Player Rolled Die Value : "+rollDie);
 	}
 }
